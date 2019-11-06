@@ -1,0 +1,6 @@
+<h2>{{headline}}</h2>
+<form>
+    <input type='text' placeholder='Correo' (input)='correo=$event.target.value'>
+    <input type='password' placeholder='contraseña' (input)='contrasena=$event.target.value'>
+    <button type='button' (click)=loggearse()> Ingresar </button>
+</form>

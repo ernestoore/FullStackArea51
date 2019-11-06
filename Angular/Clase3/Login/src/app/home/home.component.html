@@ -1,0 +1,12 @@
+<p>home works!</p>
+<!-- <p>{{info.correo}}</p>  --><!--Interpolacion que recibe la informacion desde el componente-->
+<!-- <p>{{info.contrasena}}</p> -->
+<p>{{servicioUsuario.correo}}</p> <!-- Cualquier propiedad se puede hacer una interpolacion en html -->
+
+<button (click)="MostrarData()">Mostrar</button>
+
+<ul>
+    <li *ngFor="let item of lista"> 
+        {{item}} <!-- Interporlacion de los datos de la lista -->
+    </li>
+</ul>
