@@ -1,0 +1,13 @@
+<form #formulario="ngForm">
+
+    <input type="text" placeholder="email" required email ngModel name="email" #emailU="ngModel">
+    <!-- Si quieres poner mensajes de error y validar las propiedades ngModel y #emailU="ngModel" deben ir juntas -->
+    <span *ngIf="emailU.invalid && emailU.errors.required && emailU.touched"> El email no fue ingresado</span>
+    <span *ngIf="emailU.invalid && emailU.errors.email && emailU.touched"> formato de email no ingresado</span>
+    <br>
+    <input type="password" placeholder="contraseña" required ngModel name="contrasena"  #contrasenaU="ngModel">
+    <span *ngIf="contrasenaU.invalid && contrasenaU.errors.required && contrasenaU.touched">La contraseña no fue ingresada</span>
+    <br>
+    <button type="button" (click)="login()" [disabled]="!formularioLogin.valid">Ingresar</button>
+    
+</form>

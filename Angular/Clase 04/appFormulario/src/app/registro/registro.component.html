@@ -1,0 +1,31 @@
+<!-- <p>registro works!</p>
+<input type="text" [ngModel]="nombre" (ngModelChange)="nombre=$event">
+<br>
+<p>{{nombre}}</p> -->
+
+<p>registro works!</p>
+<input type="text" [(ngModel)]="nombre" >
+<br>
+<p>{{nombre}}</p>
+
+<!--Vamos a crear un formulario. El action de la etiqueta Form nunca va-->
+
+<form #formulario="ngForm"> <!--# indica que es una referencia-->
+    <!--#formulario="ngForm" >> Va a heredar de la propiedad ngForm-->
+<input type="text" placeholder="Nombre" ngModel name="nombre" required #nombreU="ngModel"> <!--Hereda de la propiedad ngModel, debe tener un atributo name para identificar los controles-->
+<!--#nombre="ngModel" referencia va a heredar la estructura y metodos de la directiva ngModel -->
+<span *ngIf="nombreU.invalid && nombreU.touched">El nombre es requerido</span>
+<br>
+<input type="text" placeholder="Correo" ngModel name="correo" required email #correo="ngModel"><!--required y email son validaciones de Angular-->
+<span *ngIf="correo.invalid && correo.errors.required && correo.touched">El correo es requerido</span>
+<span *ngIf="correo.invalid && correo.errors.email && correo.touched">Debe tener el formato de correo correcto</span>
+<br>
+<input type="password" placeholder="Contraseña" ngModel name="contrasena" required >
+<br>
+<button type="button" (click)="registrar()" [disabled]="!formularioRegistro.valid">Registrar</button>
+<!--Se asocia el disabled a la propiedad del formulario. Se pone entre [] para que evalue la propiedad value -->
+<br>
+<button type="button" (click)="cargarTodo()">Cargar Data Total</button> 
+<button type="button" (click)="cargarParcial()">Cargar data parcial</button>
+
+</form>
