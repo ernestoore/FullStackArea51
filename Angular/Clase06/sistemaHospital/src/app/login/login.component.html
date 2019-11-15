@@ -1,0 +1,14 @@
+<form [formGroup]="grupo">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Correo</label>
+          <input type="email" class="form-control" formControlName="email" name="emailUsuario" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresar correo">
+          <span *ngIf="grupo.get('email').hasError('required') && grupo.get('email').touched">El correo es obligatorio</span>
+          <span *ngIf="grupo.get('email').hasError('correoGratuito') && grupo.get('email').touched">No se acepta correo gratuito</span>
+        </div>
+        <div class="form-group" >
+          <label for="exampleInputPassword1">Contrasena</label>
+          <input type="password" class="form-control" formControlName="contrasena" name="passUsuario" id="exampleInputPassword1" placeholder="Ingresar Contrasena">
+          <span *ngIf="grupo.get('contrasena').hasError('required') && grupo.get('contrasena').touched">La contraseña es obligatoria</span>
+        </div>
+        <button type="button" class="btn btn-primary" (click)="registrar()">Ingresar</button>
+    </form>

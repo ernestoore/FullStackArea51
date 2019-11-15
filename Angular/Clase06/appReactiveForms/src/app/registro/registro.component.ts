@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup, FormControl, Validators, ValidatorFn} from '@angular/forms';
+import {FormGroup, FormControl, Validators, ValidatorFn, AbstractControl} from '@angular/forms';
 
 @Component({
   selector: 'app-registro',
@@ -25,11 +25,13 @@ export class RegistroComponent implements OnInit {
 
       nombre: new FormControl(null,Validators.required),
       correo: new FormControl(null, [Validators.required, Validators.email,
-        //Opcion1 :Con el bind le dice que cuando utilice el objeto de contexto "this" 
+        //Opcion1 :Con el bind le dice que cuando utilice el objeto de contexto "this" dentro de la validacion
         //se de la clase de validarCorreoGratuito (class FormControl)
         this.validarCorreoGratuito.bind(this), this.soloCorreoEmpresarial(this.dominioEmpresa)]),
       contrasena: new FormControl(null, Validators.required),
-      confirmacion: new FormControl(null, Validators.required)
+
+      //Cuando son varias validaciones, se debe utilizar un arreglo []
+      confirmacion: new FormControl(null, [Validators.required, this.validarConfirmacion])
     })
    }
 
@@ -108,5 +110,28 @@ export class RegistroComponent implements OnInit {
   limpiarData(){
     this.grupo.reset()
   }
+
+  validarConfirmacion(fc: AbstractControl): {[s: string]: boolean}
+  {
+    //Si no existe el formControl o el formGroup no hay nada que validar
+    if(!fc || !fc.parent) return null
+
+    const contrasena = fc.parent.get("contrasena")
+    const confirmacion = fc.parent.get("confirmacion")
+
+    //Si no existe el control contrasena o confirmacion entonces no se continua
+    if (!contrasena || !confirmacion) return null
+
+    //El vacio o null se interpreta como false
+    if(!confirmacion.value.trim()) return null
+
+    if(contrasena.value != confirmacion.value) return
+    {contrasenaNoCoincide: true}
+
+    //Si son iguales, entonces se devuelve null
+    return null
+  }
+
+
   
 }
