@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private activateRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    const fragmento = this.activateRoute.snapshot.fragment
+    console.log(fragmento)
+
+    this.activateRoute.fragment.subscribe((info: any) =>{
+      console.log(info)
+    })
   }
 
 }

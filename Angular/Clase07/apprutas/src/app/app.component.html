@@ -2,9 +2,15 @@
 <!--href hace que recargue la pagina-->
 <!--routerLink es de angular y hace el ruteo sin recargar la pagina-->
   <ul><a routerLink="/">Login</a></ul>
-  <ul><a routerLink="/home">Home</a></ul>
-  <ul><a routerLink="cliente/listado">Listado</a></ul>
+  <!--Solo puede haber un framento en una URl.-->
+  <!--La propiedad pudo ir entre [], pero no es necesario.-->
+  <ul><a routerLink="/home" fragment="planeta-tierra">Home</a></ul>
+  <ul><a [routerLink]="['/cliente','listado']" [queryParams]="{tipo: 20, categoria: 2}" fragment="modo-Dios">Listado</a></ul>
+
   <ul><a routerLink="cliente/edicion/40">Edicion</a></ul>
-  <ul><a routerLink="cliente/nuevo">Nuevo</a></ul>
+  <!--RouterLink puede recibir un arreglo-->
+  <!--El atributo debe ser evaluado, por lo que se coloca la propiedad [routerLink]-->
+  <!--El parametro de Query string se declara en la propiedad queryParams -->
+  <ul><a [routerLink]="['/cliente','nuevo']" [queryParams]="{empresa: 'Saturnino'}">Nuevo</a></ul>
   </nav>
 <router-outlet></router-outlet>
