@@ -1,0 +1,11 @@
+<form [formGroup]="grupo">
+  <div class="form-group" >
+    <label for="exampleInputEmail1">Nombre</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" formControlName="nombreUsuario" name="nombre" aria-describedby="emailHelp" placeholder="Ingresar Nombre">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Apellido</label>
+    <input type="password" class="form-control" formControlName="apellidoUsuario" name="apellido" id="exampleInputPassword1" placeholder="Ingresar Apellido">
+  </div>
+  <button type="submit" class="btn btn-primary" (click)="grabar()">Crear Usuario</button>
+</form>

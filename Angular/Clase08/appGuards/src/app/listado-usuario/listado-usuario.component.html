@@ -1,0 +1,17 @@
+
+<button type="button" class="btn btn-secondary" (click)="nuevoRegistro()" [routerLink]="['/listadoUsuario','nuevoUsuario',1]">Nuevo</button>
+
+<table class="table table-dark">
+<thead>
+<th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+      <th></th>
+</thead>
+<tbody></tbody>
+<tr *ngFor="let usuario of listadoUsuario">
+<td>{{usuario.nombre}}</td>
+<td>{{usuario.apellido}}</td>
+<td><button type="button" class="btn btn-primary" (click)="editarRegistro(usuario.id)" [routerLink]="['/listadoUsuario','edicionUsuario',1]">Edicion</button></td>
+</tr>
+</table>
+<router-outlet></router-outlet>
