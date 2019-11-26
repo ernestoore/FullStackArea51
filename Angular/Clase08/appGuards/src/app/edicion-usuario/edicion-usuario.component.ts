@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UsuariosService } from '../usuarios.service';
-import {Router, ActivateRoute} from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-edicion-usuario',
@@ -12,7 +12,7 @@ export class EdicionUsuarioComponent implements OnInit {
 
  grupo: FormGroup
 
-  constructor(private router: Rourter, private activateRoute: ActivateRoute, private usuarios: UsuariosService) {
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private usuarios: UsuariosService) {
     this.grupo = new FormGroup({
       id: new FormControl(),
       nombreUsuario: new FormControl(null,[Validators.required]),
@@ -22,11 +22,16 @@ export class EdicionUsuarioComponent implements OnInit {
 
    }
 
+   grabar() {
+
+  }
+
   ngOnInit() {
-    this.activateRoute.paramMap.suscribe((respuesta: any) =>{
+    this.activatedRoute.paramMap.subscribe((respuesta: any) =>{
       const id = respuesta.params.id
-      const usuario = this.usuario.editar(id)
+      const usuario = this.usuarios.editar(id)
       // si existe usuario que se asigne al formgroup
+      //setValue recibe un objeto que tenga estructura del Formgroup y asigna los valores a cada Control.
       if(usuario) this.grupo.setValue(usuario)
     })
   }

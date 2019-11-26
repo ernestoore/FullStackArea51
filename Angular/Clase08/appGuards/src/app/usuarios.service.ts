@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class UsuariosService {
   //Lista es un arreglo de tipo Json y es declarado como vacio
-private lista: Array<{}> = []
+  lista: Array<{}> = []
 
   constructor() { }
 
