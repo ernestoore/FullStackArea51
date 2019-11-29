@@ -1,0 +1,6 @@
+<form [formGroup]="grupo">
+<!--Se requiere un name, porque Angular lo requiere para poder mostrar los mensajes de error.-->
+  <input type="text" placeholder="Ingrese su nombre" formControlName="nombre" name="nombre">
+  <br>
+  <button (click)="salvar()">Grabar</button>
+</form>
