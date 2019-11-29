@@ -8,7 +8,7 @@ import { ProductosComponent } from './productos/productos.component';
 import { EdicionComponent } from './edicion/edicion.component';
 import { NuevoComponent } from './nuevo/nuevo.component';
 import { AuthService } from './services/auth.service';
-import { AuthenticationGuard } from './authentication.guards';
+import { AuthenticationGuard } from './guards/authentication.guards';
 import { ReactiveFormsModule } from '@angular/forms'
 import { GuardadoGuard } from './guards/guardado.guard';
 

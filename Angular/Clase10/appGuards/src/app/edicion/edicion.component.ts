@@ -14,7 +14,8 @@ export class EdicionComponent implements OnInit, ICanDeactivate {
   grupo: FormGroup
 
 dataInicial= {
-  nombre: "Ernesto"
+  nombre: "Ernesto",
+  apellido: "Orellana"
 }
 
 datosModificados: boolean = true
@@ -24,7 +25,8 @@ datosModificados: boolean = true
       //El FormControl tiene 2 valores.
       //1.Paramtro por defecto
       // 2. El segundo parametro son las validaciones.
-        nombre:new FormControl(this.dataInicial.nombre)
+        nombre:new FormControl(this.dataInicial.nombre),
+        apellido: new FormControl(this.dataInicial.apellido)
     })
 
 // valueChanges es un observable que esta revisando si los valores en el formulario han cambiado.
@@ -32,8 +34,6 @@ datosModificados: boolean = true
     this.grupo.valueChanges.subscribe(() => {
       this.datosModificados = false
     })
-
-
    }
 
   ngOnInit() {
@@ -46,7 +46,7 @@ datosModificados: boolean = true
     if(this.datosModificados) return false
 
     //Se debe validar si la data inicial ha cambiado.
-    if(this.dataInicial.nombre == this.grupo.value.nombre) {
+    if(this.dataInicial.nombre == this.grupo.value.nombre && this.datosModificados) {
     return false
     } else {
       return true
