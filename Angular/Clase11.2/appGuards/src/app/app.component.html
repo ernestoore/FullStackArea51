@@ -1,0 +1,11 @@
+<nav class="navbar navbar-dark bg-dark">
+<ul *ngIf="!userLogged"><a routerLink="login">Login</a></ul>
+<ul *ngIf="!userLogged"><a routerLink="registro">Registro</a></ul>
+<ul *ngIf="userLogged"><a routerLink="home">Home</a></ul>
+<ul *ngIf="userLogged"><a routerLink="productos">Productos</a></ul>
+<ul *ngIf="userLogged"><a routerLink="productos/edicion">Edicion</a></ul>
+<ul *ngIf="userLogged"><a [routerLink]="['productos','nuevo']">Nuevo</a></ul>
+<button class="btn btn-primary" *ngIf="userLogged" (click)="logout()">Logout</button>
+</nav>
+
+<router-outlet><router-outlet>

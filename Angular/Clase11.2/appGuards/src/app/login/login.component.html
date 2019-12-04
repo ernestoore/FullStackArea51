@@ -1,0 +1,19 @@
+<div class="container">
+	<div class="row jutify-content-center pt-4">
+		<form [formGroup]="grupo">
+				<div class="form-group">
+					<input class="form-control" type="text" placeholder="Correo" formControlName="correo" name="correo">
+					<span *ngIf="grupo.get('correo').hasError('required') && grupo.get('correo').touched">El correo es obligatorio</span>
+					<span *ngIf="grupo.get('correo').hasError('email') && grupo.get('correo').touched">Ingresar formato de  correo</span><br>
+</div>
+					<div class="form-group">
+						<input class="form-control" type="password" placeholder="Contraseña" formControlName="contrasena" name="contrasena">
+						<span *ngIf="grupo.get('contrasena').hasError('required') && grupo.get('contrasena').touched">La contraseña es obligatoria</span>
+						<br>
+</div>
+						<button class="btn btn-warning" (click)="login()">Login User</button>
+		</form>
+	</div>
+</div>
+
+
