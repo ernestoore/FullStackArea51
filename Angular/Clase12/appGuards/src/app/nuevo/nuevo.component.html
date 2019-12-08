@@ -1,0 +1,15 @@
+<div class="container">
+        <div class="row jutify-content-center pt-4">
+<form [formGroup]="grupo" class="form-group">
+        <div class="form-group">
+
+    <input class="form-control" type="text" name="nombre" placeholder="Nombre Producto" formControlName="nombre"><br>
+        </div>
+    <div class="form-group">
+
+    <input class="form-control" type="text" name="descripcion" placeholder="Descripción" formControlName="descripcion"><br>
+    </div>
+	<button  (click)="agregar()" [disabled]="grupo.invalid">Nuevo producto</button>
+</form>
+</div>
+</div>
