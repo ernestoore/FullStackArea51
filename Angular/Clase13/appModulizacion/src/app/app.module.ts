@@ -9,6 +9,7 @@ import { NucleoModule } from './nucleo/nucleo.module';
 import { LibrosModule } from './libros/libros.module';
 import { AutoresModule } from './autores/autores.module';
 import { EditorialesModule } from './editoriales/editoriales.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [

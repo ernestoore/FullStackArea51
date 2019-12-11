@@ -6,7 +6,7 @@ import { EdicionEditorialesComponent } from './edicion-editoriales/edicion-edito
 
 
 const routes: Routes = [
-  {path: "editoriales", children: [
+  {path: "", children: [
     {path: "listado", component: ListadoEditorialesComponent},
     {path: "nuevo", component: NuevoEditorialesComponent},
     {path: "edicion", component: EdicionEditorialesComponent},

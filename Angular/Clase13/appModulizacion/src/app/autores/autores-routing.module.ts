@@ -6,7 +6,7 @@ import { EdicionAutoresComponent } from './edicion-autores/edicion-autores.compo
 
 
 const routes: Routes = [
-  {path: "autores", children: [
+  {path: "", children: [
     {path: "listado", component: ListadoAutoresComponent},
     {path: "nuevo", component: NuevoAutoresComponent},
     {path: "edicion", component: EdicionAutoresComponent},

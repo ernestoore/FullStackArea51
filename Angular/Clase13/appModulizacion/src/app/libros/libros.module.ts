@@ -4,6 +4,8 @@ import { ListadoComponent } from './listado/listado.component';
 import { EdicionComponent } from './edicion/edicion.component';
 import { NuevoComponent } from './nuevo/nuevo.component';
 import { LibrosRouting } from './libros-routing.module';
+import { LibrosServiceService } from './libros-service.service';
+import { CompartidoModule } from '../compartido/compartido.module';
 
 
 
@@ -13,7 +15,9 @@ import { LibrosRouting } from './libros-routing.module';
     //El commonModule es quien contiene las directivas estructurales
     //de angular: ngIf, ngFor
     CommonModule,
-    LibrosRouting
-  ]
+    LibrosRouting,
+    CompartidoModule
+  ],
+  providers: [LibrosServiceService]
 })
 export class LibrosModule { }
