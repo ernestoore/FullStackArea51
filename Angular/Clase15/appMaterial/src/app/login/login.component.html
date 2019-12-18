@@ -1,0 +1,27 @@
+<div fxLayout fxLayoutAlign="center center">
+	<!--Se le esta diciendo que el ancho inicial sera de 500px-->
+	<mat-card fxFlex="500px" fxFlex.xs="320px" class="mat-elevation-z10">
+		<mat-card-header>
+			<h3>Login</h3>
+		</mat-card-header>
+		<mat-card-content>
+			<form fxLayout="column">
+				<mat-form-field>
+					<!-- Angular material obliga que todos los input tengan el atributo matInput-->
+					<input type="text" placeholder="Correo" name="correo" matInput>
+					<!-- El manejo de errores se hacen con mat-error -->
+					<mat-error>El correo es necesario</mat-error>
+				</mat-form-field>
+				<mat-form-field>
+					<!-- Angular material obliga que todos los input tengan el atributo matInput -->
+					<input type="password" placeholder="Contraseña" name="contrasena" matInput>
+				</mat-form-field>
+				<!-- Alinear el boton a la izquierda -->
+				<article fxLayout="row" fxLayoutAlign="end">
+					<button mat-strocked-button color="primary">Ingresar</button>
+				</article>
+
+			</form>
+		</mat-card-content>
+	</mat-card>
+</div>

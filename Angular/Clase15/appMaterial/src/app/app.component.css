@@ -1,0 +1,32 @@
+mat-side-nav-container,
+mat-sidenav,
+mat-sidenav-content{
+	height: 100vh;
+}
+
+mat-sidenav{
+	width: 320px;
+	color: blue;
+}
+
+ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+li{
+	display: inline-block;
+}
+
+a, a:link, a:active, a:visited{
+	/* se le puede colocar alto y ancho cuando es block */
+	text-decoration: none;
+	color: rgba(255,255,255,.3)
+
+}
+
+a:hover{
+	text-decoration: underline;
+	color: white
+}
