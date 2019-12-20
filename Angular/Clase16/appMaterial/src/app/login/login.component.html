@@ -1,0 +1,32 @@
+<div fxLayout fxLayoutAlign="center center">
+	<!--Se le esta diciendo que el ancho inicial sera de 500px-->
+	<mat-card fxFlex="500px" fxFlex.xs="320px" class="mat-elevation-z10">
+		<mat-card-header>
+			<h3>Login</h3>
+		</mat-card-header>
+		<mat-card-content>
+			<form fxLayout="column" [formGroup]="grupo">
+				<mat-form-field appearance="outline">
+					<!-- Angular material obliga que todos los input tengan el atributo matInput-->
+					<input type="text" placeholder="Correo" name="correo" matInput formControlName="correo" required>
+					<!-- El manejo de errores se hacen con mat-error -->
+					<mat-error *ngIf="grupo.get(correo).hasError('required')">El correo es necesario</mat-error>
+					<mat-error *ngIf="grupo.get(correo).hasError('required')">Debe tener el formato de un correo
+					</mat-error>
+				</mat-form-field>
+				<mat-form-field>
+					<!-- Angular material obliga que todos los input tengan el atributo matInput -->
+					<input type="password" placeholder="Contraseña" name="contrasena" matInput
+						formControlName="contrasena" required>
+					<mat-error>La contrasena es necesario</mat-error>
+				</mat-form-field>
+				<!-- Alinear el boton a la izquierda -->
+				<article fxLayout="row" fxLayoutAlign="end">
+					<button mat-strocked-button color="primary" [disabled]="grupo.invalid"
+						(click)="login()">Ingresar</button>
+				</article>
+
+			</form>
+		</mat-card-content>
+	</mat-card>
+</div>
